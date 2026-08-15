@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agenda | Lumos Connect</title>
+
+    <link rel="stylesheet" href="/front-end/css/variables.css">
+    <link rel="stylesheet" href="/front-end/css/global.css">
+    <link rel="stylesheet" href="/front-end/css/accessibility.css">
+    <link rel="stylesheet" href="/front-end/pages/agenda/agenda.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <img
+                    src="/front-end/assets/logo/robolumosconnect.png"
+                    alt="Lumos Connect"
+                >
+
+                <span>Lumos Connect</span>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="../inicio/inicio.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="house"></i>
+                    <span>InÃ­cio</span>
+                </a>
+
+                <a
+                    href="../atividades/atividades.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="notebook-tabs"></i>
+                    <span>Atividades</span>
+                </a>
+
+                <a
+                    href="../progresso/progresso.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="chart-no-axes-combined"></i>
+                    <span>Progresso</span>
+                </a>
+
+                <a
+                    href="../agenda/agenda.html"
+                    class="nav-item active"
+                >
+                    <i data-lucide="calendar-days"></i>
+                    <span>Agenda</span>
+                </a>
+
+                <a
+                    href="../configuracoes/configuracoes.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="settings"></i>
+                    <span>Configurações</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- CONTEÚDO -->
+        <main class="main-content">
+
+            <header class="page-header">
+                <h1>Agenda</h1>
+            </header>
+
+
+            <!-- CALENDÃRIO -->
+            <section class="calendar-card">
+
+                <div class="calendar-header">
+
+                    <strong id="monthYear">
+                        Agosto de 2026
+                    </strong>
+
+                    <div class="calendar-navigation">
+
+                        <button
+                            type="button"
+                            id="prevMonth"
+                            aria-label="Mês anterior"
+                        >
+                            <i data-lucide="chevron-left"></i>
+                        </button>
+
+                        <button
+                            type="button"
+                            id="nextMonth"
+                            aria-label="Próximo mês"
+                        >
+                            <i data-lucide="chevron-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="calendar-weekdays">
+
+                    <span>Dom</span>
+                    <span>Seg</span>
+                    <span>Ter</span>
+                    <span>Qua</span>
+                    <span>Qui</span>
+                    <span>Sex</span>
+                    <span>Sáb</span>
+
+                </div>
+
+
+                <div
+                    class="calendar-grid"
+                    id="calendarGrid"
+                ></div>
+
+            </section>
+
+
+            <!-- ATIVIDADES DO DIA -->
+            <section class="agenda-card">
+
+                <div class="agenda-header">
+
+                    <div>
+                        <span class="agenda-day">
+                            SEGUNDA-FEIRA
+                        </span>
+
+                        <h2 id="selectedDate">
+                            10 de Agosto
+                        </h2>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="add-button"
+                        id="addActivity"
+                    >
+                        <i data-lucide="plus"></i>
+                        Adicionar
+                    </button>
+
+                </div>
+
+
+                <!-- DIAS DA SEMANA -->
+                <div
+                    class="week-selector"
+                    id="weekSelector"
+                ></div>
+
+
+                <!-- ÃREA DE ATIVIDADES -->
+                <div class="agenda-empty">
+
+                    <div class="empty-calendar-icon">
+                        <i data-lucide="calendar-days"></i>
+                    </div>
+
+                    <p>
+                        Nenhuma atividade neste dia.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="empty-add-button"
+                        id="emptyAddActivity"
+                    >
+                        Adicionar atividade
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+<!-- MODAL ADICIONAR ATIVIDADE -->
+<div class="modal-overlay" id="activityModal">
+
+    <div class="activity-modal">
+
+        <div class="modal-header">
+
+            <div>
+                <span class="modal-label">
+                    NOVA ATIVIDADE
+                </span>
+
+                <h2>Adicionar atividade</h2>
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeModal"
+                aria-label="Fechar"
+            >
+                <i data-lucide="x"></i>
+            </button>
+
+        </div>
+
+
+        <form id="activityForm">
+
+            <div class="form-group">
+
+                <label for="activityName">
+                    Nome da atividade
+                </label>
+
+                <input
+                    type="text"
+                    id="activityName"
+                    placeholder="Ex.: ExercÃ­cio de Matemática"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="activityDate">
+                        Data
+                    </label>
+
+                    <input
+                        type="date"
+                        id="activityDate"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="activityTime">
+                        Horário
+                    </label>
+
+                    <input
+                        type="time"
+                        id="activityTime"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="activitySubject">
+                    Matéria
+                </label>
+
+                <select id="activitySubject">
+
+                    <option value="">
+                        Selecione uma Matéria
+                    </option>
+
+                    <option value="Português">
+                        Português
+                    </option>
+
+                    <option value="Matemática">
+                        Matemática
+                    </option>
+
+                    <option value="História">
+                        História
+                    </option>
+
+                    <option value="Geografia">
+                        Geografia
+                    </option>
+
+                    <option value="FÃ­sica">
+                        FÃ­sica
+                    </option>
+
+                    <option value="Química">
+                        Química
+                    </option>
+
+                    <option value="Biologia">
+                        Biologia
+                    </option>
+
+                    <option value="Inglês">
+                        Inglês
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="activityDescription">
+                    Descrição
+                </label>
+
+                <textarea
+                    id="activityDescription"
+                    rows="3"
+                    placeholder="Adicione uma Descrição..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-button"
+                    id="cancelModal"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-button"
+                >
+                    <i data-lucide="check"></i>
+                    Adicionar atividade
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+    <script src="/front-end/js/api.js"></script>
+<script src="/front-end/js/auth.js"></script>
+<script src="/front-end/js/authGuard.js"></script>
+    <script src="/front-end/js/main.js"></script>
+    <script src="/front-end/js/accessibility.js"></script>
+    
+    
+
+`r`n<script src="/front-end/pages/agenda/agenda.js?v=20260815-final"></script>
+
+</body>
+
+</html>
+
+
+

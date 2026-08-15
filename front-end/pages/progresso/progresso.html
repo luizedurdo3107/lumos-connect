@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Progresso | Lumos Connect</title>
+
+    <link rel="stylesheet" href="/front-end/css/variables.css">
+    <link rel="stylesheet" href="/front-end/css/global.css">
+    <link rel="stylesheet" href="/front-end/css/accessibility.css">
+    <link rel="stylesheet" href="/front-end/pages/progresso/progresso.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <img
+                    src="/front-end/assets/logo/robolumosconnect.png"
+                    alt="Lumos Connect"
+                >
+
+                <span>Lumos Connect</span>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="../inicio/inicio.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="house"></i>
+                    <span>Início</span>
+                </a>
+
+                <a
+                    href="../atividades/atividades.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="notebook-tabs"></i>
+                    <span>Atividades</span>
+                </a>
+
+                <a
+                    href="../progresso/progresso.html"
+                    class="nav-item active"
+                >
+                    <i data-lucide="chart-no-axes-combined"></i>
+                    <span>Progresso</span>
+                </a>
+
+                <a
+                    href="../agenda/agenda.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="calendar-days"></i>
+                    <span>Agenda</span>
+                </a>
+
+                <a
+                    href="/front-end/pages/configurações/configurações.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="settings"></i>
+                    <span>Configurações</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- CONTEÚDO -->
+        <main class="main-content">
+
+            <header class="page-header">
+                <h1>Progresso</h1>
+            </header>
+
+
+            <!-- ABAS -->
+            <div class="progress-tabs">
+
+                <button
+                    type="button"
+                    class="progress-tab active"
+                    data-tab="overview"
+                >
+                    Visão Geral
+                </button>
+
+                <button
+                    type="button"
+                    class="progress-tab"
+                    data-tab="subjects"
+                >
+                    Por Matéria
+                </button>
+
+            </div>
+
+
+            <!-- VISÃO GERAL -->
+            <section
+                class="tab-content active"
+                id="overview"
+            >
+
+                <div class="overview-grid">
+
+                    <!-- RESUMO -->
+                    <section class="progress-card summary-card">
+
+                        <h2>Resumo Geral</h2>
+
+                        <div class="summary-grid">
+
+                            <div class="stat-box green">
+
+                                <strong id="totalExercises">
+                                    47
+                                </strong>
+
+                                <span>
+                                    Exercícios
+                                </span>
+
+                            </div>
+
+
+                            <div class="stat-box yellow">
+
+                                <strong id="accuracy">
+                                    89%
+                                </strong>
+
+                                <span>
+                                    Taxa de Acerto
+                                </span>
+
+                            </div>
+
+
+                            <div class="stat-box blue">
+
+                                <strong id="studyTime">
+                                    2h40m
+                                </strong>
+
+                                <span>
+                                    Tempo de Estudo
+                                </span>
+
+                            </div>
+
+
+                            <div class="stat-box red">
+
+                                <strong>
+
+                                    <i data-lucide="flame"></i>
+
+                                    <span id="streak">
+                                        7
+                                    </span>
+
+                                </strong>
+
+                                <span>
+                                    Dias Seguidos
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- GRÁFICO -->
+                    <section class="progress-card chart-card">
+
+                        <h2>
+                            Atividade da Semana
+                        </h2>
+
+                        <div
+                            class="weekly-chart"
+                            id="weeklyChart"
+                        ></div>
+
+                    </section>
+
+                </div>
+
+            </section>
+
+
+            <!-- POR MATÉRIA -->
+            <section
+                class="tab-content"
+                id="subjects"
+            >
+
+                <div class="progress-card subjects-card">
+
+                    <div class="subjects-header">
+
+                        <div>
+
+                            <h2>
+                                Progresso por Matéria
+                            </h2>
+
+                            <p>
+                                Acompanhe seu desempenho em cada matéria.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="subjects-list"
+                        id="subjectsList"
+                    ></div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+<script src="/front-end/js/api.js"></script>
+<script src="/front-end/js/auth.js"></script>
+<script src="/front-end/js/authGuard.js"></script>
+    <script src="/front-end/js/main.js"></script>
+
+    <script src="/front-end/js/accessibility.js"></script>
+
+    <script src="/front-end/pages/progresso/progresso.js"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+
+</body>
+</html>

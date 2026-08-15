@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atividades | Lumos Connect</title>
+
+    <!-- CSS GLOBAL -->
+    <link rel="stylesheet" href="/front-end/css/variables.css">
+    <link rel="stylesheet" href="/front-end/css/global.css">
+
+    <!-- CSS DA PÁGINA -->
+    <link rel="stylesheet" href="/front-end/pages/atividades/atividades.css">
+
+    <!-- LUCIDE -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ========================================
+             SIDEBAR
+        ========================================= -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <img
+                    src="/front-end/assets/logo/robolumosconnect.png"
+                    alt="Lumos Connect"
+                >
+
+                <span>Lumos Connect</span>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="../inicio/inicio.html"
+                    class="nav-item">
+                    <i data-lucide="house"></i>
+                    <span>Início</span>
+                </a>
+
+                <a
+                    href="../atividades/atividades.html"
+                    class="nav-item active">
+                    <i data-lucide="notebook-tabs"></i>
+                    <span>Atividades</span>
+                </a>
+
+                <a
+                    href="../progresso/progresso.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="chart-no-axes-combined"></i>
+                    <span>Progresso</span>
+                </a>
+
+                <a
+                    href="../agenda/agenda.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="calendar-days"></i>
+                    <span>Agenda</span>
+                </a>
+
+                <a
+                    href="../configuracoes/configuracoes.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="settings"></i>
+                    <span>Configurações</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- ========================================
+             CONTEÚDO PRINCIPAL
+        ========================================= -->
+
+        <main class="main-content">
+
+            <!-- CABEÇALHO -->
+
+            <header class="page-header">
+
+    <div>
+        <h1>
+            Atividades
+        </h1>
+    </div>
+
+    <button
+        type="button"
+        id="addActivityButton"
+        class="add-activity-button"
+        hidden
+    >
+        <i data-lucide="plus"></i>
+        <span>Adicionar atividade</span>
+    </button>
+
+</header>
+
+
+            <!-- ========================================
+                 ABAS
+            ========================================= -->
+
+            <nav class="activity-tabs">
+
+                <button
+                    type="button"
+                    class="activity-tab active"
+                    data-tab="diaria"
+                >
+                    Diária
+                </button>
+
+                <button
+                    type="button"
+                    class="activity-tab"
+                    data-tab="semanal"
+                >
+                    Semanal
+                </button>
+
+                <button
+                    type="button"
+                    class="activity-tab"
+                    data-tab="encerrada"
+                >
+                    Encerrada
+                </button>
+
+                <button
+                    type="button"
+                    class="activity-tab"
+                    data-tab="materias"
+                >
+                    Matérias
+                </button>
+
+            </nav>
+
+
+            <!-- ========================================
+                 ABA — DIÁRIA
+            ========================================= -->
+
+            <section
+                class="tab-content active"
+                id="diaria"
+            >
+
+                <div class="activity-card">
+
+                    <div class="activity-card-header">
+
+                        <div>
+
+                            <h2>
+                                Atividades diarias
+                            </h2>
+
+                           
+
+                        </div>
+
+
+                    </div>
+
+
+                  <div class="activity-list" id="activityList">
+    <!-- As atividades serão carregadas pelo JavaScript -->
+</div>
+
+
+                        <!-- ATIVIDADE CONCLUÍDA -->
+
+                        <article class="activity-item completed">
+
+                            <div class="activity-number">
+                                <i data-lucide="check"></i>
+                            </div>
+
+                            <div class="activity-info">
+
+                                <h3>
+                                    Expressões algébricas
+                                </h3>
+
+                                <p>
+                                    Letras, variáveis e simplificação
+                                </p>
+
+                            </div>
+
+                            <span class="activity-status">
+                                Concluído
+                            </span>
+
+                        </article>
+
+
+                        <!-- ATIVIDADE CONCLUÍDA -->
+
+                        <article class="activity-item completed">
+
+                            <div class="activity-number">
+                                <i data-lucide="check"></i>
+                            </div>
+
+                            <div class="activity-info">
+
+                                <h3>
+                                    Equações do 1º grau
+                                </h3>
+
+                                <p>
+                                    Resolução de problemas contextualizados
+                                </p>
+
+                            </div>
+
+                            <span class="activity-status">
+                                Concluído
+                            </span>
+
+                        </article>
+
+
+                        <!-- ATIVIDADE ATUAL -->
+
+                        <article class="activity-item current">
+
+                            <div class="activity-number">
+                                6
+                            </div>
+
+                            <div class="activity-info">
+
+                                <h3>
+                                    Equações do 2º grau
+                                </h3>
+
+                                <p>
+                                    Fórmula de Bhaskara e interpretação
+                                </p>
+
+                            </div>
+
+                            <span class="activity-status">
+                                Em andamento
+                            </span>
+
+                        </article>
+
+
+                        <!-- ATIVIDADE BLOQUEADA -->
+
+                        <article class="activity-item locked">
+
+                            <div class="activity-number">
+                                7
+                            </div>
+
+                            <div class="activity-info">
+
+                                <h3>
+                                    Funções quadráticas
+                                </h3>
+
+                                <p>
+                                    Parábolas, vértices e raízes
+                                </p>
+
+                            </div>
+
+                            <span class="activity-status">
+                                Bloqueado
+                            </span>
+
+                        </article>
+
+
+                        <!-- ATIVIDADE BLOQUEADA -->
+
+                        <article class="activity-item locked">
+
+                            <div class="activity-number">
+                                8
+                            </div>
+
+                            <div class="activity-info">
+
+                                <h3>
+                                    Geometria plana
+                                </h3>
+
+                                <p>
+                                    Áreas, perímetros e teoremas
+                                </p>
+
+                            </div>
+
+                            <span class="activity-status">
+                                Bloqueado
+                            </span>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================
+                 ABA — SEMANAL
+            ========================================= -->
+
+            <section
+                class="tab-content"
+                id="semanal"
+            >
+
+                <div class="empty-card">
+
+                    <div class="empty-icon">
+                        <i data-lucide="calendar-days"></i>
+                    </div>
+
+                    <h2>
+                        Atividades semanais
+                    </h2>
+
+                    <p>
+                        Aqui aparecerão as atividades
+                        planejadas para esta semana.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================
+                 ABA — ENCERRADAS
+            ========================================= -->
+
+            <section
+                class="tab-content"
+                id="encerrada"
+            >
+
+                <div class="empty-card">
+
+                    <div class="empty-icon">
+                        <i data-lucide="circle-check"></i>
+                    </div>
+
+                    <h2>
+                        Atividades encerradas
+                    </h2>
+
+                    <p>
+                        Aqui você poderá consultar
+                        as atividades que já foram finalizadas.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================
+                 ABA — MATÉRIAS
+            ========================================= -->
+
+            <section
+                class="tab-content"
+                id="materias"
+            >
+
+                <div class="subjects-card">
+
+                    <div class="subjects-header">
+
+                        <h2>
+                            Matérias
+                        </h2>
+
+                        <p>
+                            Escolha uma matéria para visualizar
+                            suas atividades.
+                        </p>
+
+                    </div>
+
+
+                    <div class="subjects-grid">
+
+                        <button
+                            type="button"
+                            class="subject-option"
+                            data-subject="Português"
+                        >
+                            <span class="subject-icon">
+                                <i data-lucide="book-open"></i>
+                            </span>
+
+                            <span class="subject-name">
+                                Português
+                            </span>
+
+                            <i
+                                data-lucide="chevron-right"
+                                class="subject-arrow"
+                            ></i>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="subject-option"
+                            data-subject="Matemática"
+                        >
+                            <span class="subject-icon">
+                                <i data-lucide="calculator"></i>
+                            </span>
+
+                            <span class="subject-name">
+                                Matemática
+                            </span>
+
+                            <i
+                                data-lucide="chevron-right"
+                                class="subject-arrow"
+                            ></i>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="subject-option"
+                            data-subject="Geografia"
+                        >
+                            <span class="subject-icon">
+                                <i data-lucide="globe"></i>
+                            </span>
+
+                            <span class="subject-name">
+                                Geografia
+                            </span>
+
+                            <i
+                                data-lucide="chevron-right"
+                                class="subject-arrow"
+                            ></i>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="subject-option"
+                            data-subject="Física"
+                        >
+                            <span class="subject-icon">
+                                <i data-lucide="atom"></i>
+                            </span>
+
+                            <span class="subject-name">
+                                Física
+                            </span>
+
+                            <i
+                                data-lucide="chevron-right"
+                                class="subject-arrow"
+                            ></i>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="subject-option"
+                            data-subject="Química"
+                        >
+                            <span class="subject-icon">
+                                <i data-lucide="flask-conical"></i>
+                            </span>
+
+                            <span class="subject-name">
+                                Química
+                            </span>
+
+                            <i
+                                data-lucide="chevron-right"
+                                class="subject-arrow"
+                            ></i>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="subject-option"
+                            data-subject="Biologia"
+                        >
+                            <span class="subject-icon">
+                                <i data-lucide="dna"></i>
+                            </span>
+
+                            <span class="subject-name">
+                                Biologia
+                            </span>
+
+                            <i
+                                data-lucide="chevron-right"
+                                class="subject-arrow"
+                            ></i>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="subject-option"
+                            data-subject="História"
+                        >
+                            <span class="subject-icon">
+                                <i data-lucide="landmark"></i>
+                            </span>
+
+                            <span class="subject-name">
+                                História
+                            </span>
+
+                            <i
+                                data-lucide="chevron-right"
+                                class="subject-arrow"
+                            ></i>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="subject-option"
+                            data-subject="Inglês"
+                        >
+                            <span class="subject-icon">
+                                <i data-lucide="languages"></i>
+                            </span>
+
+                            <span class="subject-name">
+                                Inglês
+                            </span>
+
+                            <i
+                                data-lucide="chevron-right"
+                                class="subject-arrow"
+                            ></i>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="subject-option"
+                            data-subject="Sociologia"
+                        >
+                            <span class="subject-icon">
+                                <i data-lucide="users"></i>
+                            </span>
+
+                            <span class="subject-name">
+                                Sociologia
+                            </span>
+
+                            <i
+                                data-lucide="chevron-right"
+                                class="subject-arrow"
+                            ></i>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="subject-option"
+                            data-subject="Filosofia"
+                        >
+                            <span class="subject-icon">
+                                <i data-lucide="brain"></i>
+                            </span>
+
+                            <span class="subject-name">
+                                Filosofia
+                            </span>
+
+                            <i
+                                data-lucide="chevron-right"
+                                class="subject-arrow"
+                            ></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+<!-- MODAL — ADICIONAR ATIVIDADE -->
+
+<div
+    class="activity-modal"
+    id="activityModal"
+    hidden
+>
+    <div class="activity-modal-content">
+
+        <div class="activity-modal-header">
+
+            <div>
+                <h2>Adicionar atividade</h2>
+                <p>Crie uma nova atividade para os estudantes.</p>
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeActivityModal"
+                aria-label="Fechar"
+            >
+                <i data-lucide="x"></i>
+            </button>
+
+        </div>
+
+        <form id="activityForm">
+
+            <div class="form-group">
+
+                <label for="activityTitle">
+                    Título
+                </label>
+
+                <input
+                    type="text"
+                    id="activityTitle"
+                    placeholder="Ex: Exercícios de Matemática"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="activityDescription">
+                    Descrição
+                </label>
+
+                <textarea
+                    id="activityDescription"
+                    placeholder="Descreva a atividade..."
+                    rows="4"
+                ></textarea>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="activitySubject">
+                    Matéria
+                </label>
+
+                <select
+                    id="activitySubject"
+                    required
+                >
+                    <option value="">
+                        Selecione uma matéria
+                    </option>
+
+                    <option value="Português">
+                        Português
+                    </option>
+
+                    <option value="Matemática">
+                        Matemática
+                    </option>
+
+                    <option value="Geografia">
+                        Geografia
+                    </option>
+
+                    <option value="Física">
+                        Física
+                    </option>
+
+                    <option value="Química">
+                        Química
+                    </option>
+
+                    <option value="Biologia">
+                        Biologia
+                    </option>
+
+                    <option value="História">
+                        História
+                    </option>
+
+                    <option value="Inglês">
+                        Inglês
+                    </option>
+
+                    <option value="Sociologia">
+                        Sociologia
+                    </option>
+
+                    <option value="Filosofia">
+                        Filosofia
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="activityDueDate">
+                    Data de entrega
+                </label>
+
+                <input
+                    type="datetime-local"
+                    id="activityDueDate"
+                >
+
+            </div>
+
+            <span
+                class="activity-form-error"
+                id="activityFormError"
+            ></span>
+
+            <div class="activity-modal-actions">
+
+                <button
+                    type="button"
+                    class="modal-cancel"
+                    id="cancelActivity"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    type="submit"
+                    class="modal-submit"
+                >
+                    <i data-lucide="plus"></i>
+                    Criar atividade
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+    <script src="/front-end/js/api.js"></script>
+<script src="/front-end/js/auth.js"></script>
+<script src="/front-end/js/authGuard.js"></script>
+
+    <script src="/front-end/js/main.js"></script>
+
+    <!-- JAVASCRIPT DA PÁGINA -->
+
+    <script src="/front-end/pages/atividades/atividades.js"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+﻿back-end/node_modules/
+back-end/.env
+back-end/.env.*
+!back-end/.env.example
+
+front-end-backup-corrompido/
+front-end-backup-utf8/
+
+*.log
+.DS_Store
+Thumbs.db

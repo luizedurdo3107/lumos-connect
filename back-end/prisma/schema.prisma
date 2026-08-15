@@ -1,0 +1,113 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                 Int                @id @default(autoincrement())
+  name               String
+  email              String             @unique
+  password           String
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  role               UserRole           @default(STUDENT)
+  activities         Activity[]
+  activityProgresses ActivityProgress[]
+  agenda             Agenda[]
+  progress           Progress[]
+  studySessions      StudySession[]
+}
+
+model Activity {
+  id                 Int                @id @default(autoincrement())
+  title              String
+  description        String?
+  subject            String?
+  dueDate            DateTime?
+  completed          Boolean            @default(false)
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  userId             Int
+  progress           Int                @default(0)
+  user               User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  contents           ActivityContent[]
+  activityProgresses ActivityProgress[]
+}
+
+model ActivityContent {
+  id         Int         @id @default(autoincrement())
+  type       ContentType
+  title      String?
+  content    String?
+  url        String?
+  duration   Int?
+  order      Int         @default(0)
+  activityId Int
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  activity   Activity    @relation(fields: [activityId], references: [id], onDelete: Cascade)
+}
+
+model ActivityProgress {
+  id         Int      @id @default(autoincrement())
+  activityId Int
+  userId     Int
+  completed  Boolean  @default(false)
+  progress   Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  activity   Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([activityId, userId])
+}
+
+model Progress {
+  id         Int      @id @default(autoincrement())
+  subject    String
+  percentage Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, subject])
+}
+
+model Agenda {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  date        DateTime
+  type        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model StudySession {
+  id        Int      @id @default(autoincrement())
+  subject   String
+  duration  Int
+  startedAt DateTime
+  createdAt DateTime @default(now())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum UserRole {
+  STUDENT
+  ADMIN
+}
+
+enum ContentType {
+  TEXT
+  VIDEO
+  AUDIO
+  EXERCISE
+  FLASHCARD
+}

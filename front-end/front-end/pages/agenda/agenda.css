@@ -1,0 +1,896 @@
+/* ========================================
+   AGENDA
+======================================== */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+
+    padding: 28px 32px 40px;
+
+    background: var(--background);
+}
+
+
+/* ========================================
+   TÍTULO
+======================================== */
+
+.page-header {
+    margin-bottom: 18px;
+}
+
+.page-header h1 {
+    margin: 0;
+
+    font-size: 32px;
+    line-height: 1.1;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+
+/* ========================================
+   CALENDÁRIO MENSAL
+======================================== */
+
+.calendar-card {
+    width: 100%;
+    max-width: 900px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 16px;
+
+    box-shadow:
+        0 3px 10px rgba(43, 59, 54, 0.06);
+
+    margin-bottom: 14px;
+}
+
+
+/* ========================================
+   CABEÇALHO DO CALENDÁRIO
+======================================== */
+
+.calendar-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 14px;
+}
+
+.calendar-header strong {
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+
+/* ========================================
+   NAVEGAÇÃO
+======================================== */
+
+.calendar-navigation {
+    display: flex;
+
+    gap: 6px;
+}
+
+.calendar-navigation button {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    transition: 0.2s ease;
+}
+
+.calendar-navigation button:hover {
+    background: var(--secondary);
+}
+
+.calendar-navigation svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+/* ========================================
+   DIAS DA SEMANA
+======================================== */
+
+.calendar-weekdays {
+    display: grid;
+
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 6px;
+
+    margin-bottom: 6px;
+}
+
+.calendar-weekdays span {
+    text-align: center;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    color: var(--text);
+}
+
+
+/* ========================================
+   GRADE DO CALENDÁRIO
+======================================== */
+
+.calendar-grid {
+    display: grid;
+
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 6px;
+}
+
+
+/* ========================================
+   DIA
+======================================== */
+
+.calendar-day {
+    min-height: 48px;
+
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    padding: 8px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.calendar-day:hover {
+    background: var(--secondary);
+}
+
+
+/* ========================================
+   DIA VAZIO
+======================================== */
+
+.calendar-day.empty {
+    border-color: transparent;
+
+    background: transparent;
+
+    cursor: default;
+}
+
+
+/* ========================================
+   DIA SELECIONADO
+======================================== */
+
+.calendar-day.selected {
+    background: var(--primary);
+
+    border-color: var(--primary);
+
+    color: #ffffff;
+}
+
+
+/* ========================================
+   DIA ATUAL
+======================================== */
+
+.calendar-day.today {
+    box-shadow:
+        inset 0 0 0 1px var(--primary);
+}
+
+
+/* ========================================
+   ÁREA DE ATIVIDADES
+======================================== */
+
+.agenda-card {
+    width: 100%;
+    max-width: 900px;
+
+    background: var(--surface);
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(211, 217, 204, 0.5);
+
+    box-shadow:
+        0 3px 10px rgba(43, 59, 54, 0.06);
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.agenda-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 16px 12px;
+}
+
+.agenda-day {
+    display: block;
+
+    margin-bottom: 2px;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    color: var(--text-secondary);
+}
+
+.agenda-header h2 {
+    margin: 0;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+
+/* ========================================
+   BOTÃO ADICIONAR
+======================================== */
+
+.add-button {
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    padding: 0 10px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.add-button:hover {
+    background: var(--primary-dark);
+}
+
+.add-button svg {
+    width: 11px;
+    height: 11px;
+}
+
+
+/* ========================================
+   SELETOR DA SEMANA
+======================================== */
+
+.week-selector {
+    display: grid;
+
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 5px;
+
+    padding: 0 16px 14px;
+}
+
+.week-day {
+    height: 42px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 2px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.week-day:hover {
+    background: var(--secondary);
+}
+
+.week-day-name {
+    font-size: 7px;
+
+    font-weight: 600;
+}
+
+.week-day-number {
+    font-size: 9px;
+
+    font-weight: 600;
+}
+
+.week-day.selected {
+    background: var(--primary);
+
+    color: #ffffff;
+}
+
+
+/* ========================================
+   ÁREA VAZIA
+======================================== */
+
+.agenda-empty {
+    min-height: 125px;
+
+    border-top: 1px solid rgba(211, 217, 204, 0.5);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 18px;
+}
+
+.empty-calendar-icon {
+    color: var(--border);
+}
+
+.empty-calendar-icon svg {
+    width: 25px;
+    height: 25px;
+}
+
+.agenda-empty p {
+    margin: 0;
+
+    font-size: 8px;
+
+    color: var(--text-secondary);
+}
+
+.empty-add-button {
+    height: 25px;
+
+    padding: 0 11px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.empty-add-button:hover {
+    background: var(--primary-dark);
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 800px) {
+
+    .main-content {
+        padding: 24px 20px 30px;
+    }
+
+    .calendar-card,
+    .agenda-card {
+        max-width: 100%;
+    }
+
+    .calendar-day {
+        min-height: 44px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .main-content {
+        padding: 20px 14px;
+    }
+
+    .page-header h1 {
+        font-size: 28px;
+    }
+
+    .calendar-card {
+        padding: 12px;
+    }
+
+    .calendar-grid,
+    .calendar-weekdays {
+        gap: 4px;
+    }
+
+    .calendar-day {
+        min-height: 40px;
+
+        padding: 6px;
+
+        font-size: 10px;
+    }
+
+    .week-selector {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* ========================================
+   CENTRALIZAÇÃO DA AGENDA
+======================================== */
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 32px 40px 50px;
+}
+
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.page-header {
+    width: 100%;
+    max-width: 950px;
+
+    margin-bottom: 20px;
+}
+
+
+/* ========================================
+   CALENDÁRIO
+======================================== */
+
+.calendar-card {
+    width: 100%;
+    max-width: 950px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 16px;
+}
+
+
+/* ========================================
+   AGENDA
+======================================== */
+
+.agenda-card {
+    width: 100%;
+    max-width: 950px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ========================================
+   MODAL
+======================================== */
+
+.modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(43, 59, 54, 0.35);
+
+    backdrop-filter: blur(3px);
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+
+/* ========================================
+   CAIXA DO MODAL
+======================================== */
+
+.activity-modal {
+    width: 100%;
+    max-width: 470px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 15px 45px rgba(43, 59, 54, 0.18);
+
+    animation: modalOpen 0.2s ease;
+}
+
+
+@keyframes modalOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* ========================================
+   CABEÇALHO DO MODAL
+======================================== */
+
+.modal-header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.modal-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    color: var(--text-secondary);
+}
+
+.modal-header h2 {
+    margin: 0;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+
+/* ========================================
+   FECHAR MODAL
+======================================== */
+
+.modal-close {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.modal-close:hover {
+    background: var(--secondary);
+
+    color: var(--text);
+}
+
+.modal-close svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* ========================================
+   FORMULÁRIO
+======================================== */
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color: var(--text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    transition: 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(78, 111, 90, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+
+    min-height: 75px;
+}
+
+
+/* ========================================
+   CAMPOS LADO A LADO
+======================================== */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+
+/* ========================================
+   AÇÕES
+======================================== */
+
+.modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+.cancel-button,
+.save-button {
+    height: 38px;
+
+    border-radius: 8px;
+
+    padding: 0 15px;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.cancel-button {
+    border: 1px solid var(--border);
+
+    background: var(--surface);
+
+    color: var(--text);
+}
+
+.cancel-button:hover {
+    background: var(--secondary);
+}
+
+.save-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    border: none;
+
+    background: var(--primary);
+
+    color: #ffffff;
+}
+
+.save-button:hover {
+    background: var(--primary-dark);
+}
+
+.save-button svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* ========================================
+   RESPONSIVO
+======================================== */
+
+@media (max-width: 800px) {
+
+    .main-content {
+        padding: 24px 20px 40px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .main-content {
+        padding: 20px 14px 30px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .activity-modal {
+        padding: 20px;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .cancel-button,
+    .save-button {
+        width: 100%;
+    }
+
+}

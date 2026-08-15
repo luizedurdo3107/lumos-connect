@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Lumos Connect - Início</title>
+
+    <link
+        rel="stylesheet"
+        href="/front-end/css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/front-end/css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/front-end/css/accessibility.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/front-end/pages/inicio/inicio.css"
+    >
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+
+<body>
+
+    <div class="app">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <img
+                    src="/front-end/assets/logo/robolumosconnect.png"
+                    alt="Lumos Connect"
+                >
+
+                <span>Lumos Connect</span>
+
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="../inicio/inicio.html"
+                    class="nav-item active"
+                >
+                    <i data-lucide="house"></i>
+
+                    <span>Início</span>
+                </a>
+
+
+                <a
+                    href="../atividades/atividades.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="notebook-tabs"></i>
+
+                    <span>Atividades</span>
+                </a>
+
+
+                <a
+                    href="../progresso/progresso.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="chart-no-axes-combined"></i>
+
+                    <span>Progresso</span>
+                </a>
+
+
+                <a
+                    href="../agenda/agenda.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="calendar-days"></i>
+
+                    <span>Agenda</span>
+                </a>
+
+
+                <a
+                    href="/front-end/pages/configurações/configurações.html"
+                    class="nav-item"
+                >
+                    <i data-lucide="settings"></i>
+
+                    <span>Configurações</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- CONTEÚDO -->
+
+        <main class="main-content">
+
+
+            <header class="welcome-header">
+
+                <h1>
+                    Bom dia, Luiz
+                </h1>
+
+            </header>
+
+
+            <section class="dashboard-grid">
+
+
+                <!-- PROGRESSO -->
+
+                <article class="dashboard-card level-card">
+
+                    <span class="card-title">
+                        Seu progresso
+                    </span>
+
+
+                    <div class="level-content">
+
+                        <span class="level-number">
+                            NÍVEL 1
+                        </span>
+
+                        <span class="level-xp">
+                            20 XP
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-container">
+
+                        <div class="progress-info">
+
+                            <span>
+                                Progresso para nível 2
+                            </span>
+
+                            <span>
+                                20/60 XP
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-bar">
+
+                            <div
+                                class="progress-fill"
+                                id="progressFill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ATIVIDADES DIÁRIAS -->
+
+                <article class="dashboard-card daily-card">
+
+                    <div class="daily-header">
+
+                        <h2>
+                            Atividades diárias
+                        </h2>
+
+                    </div>
+
+
+                    <div class="daily-list">
+
+                        <div class="daily-item completed">
+
+                            <span class="daily-number">
+                                1
+                            </span>
+
+                            <span>
+                                Port
+                            </span>
+
+                        </div>
+
+
+                        <div class="daily-item active">
+
+                            <span class="daily-number">
+                                2
+                            </span>
+
+                            <span>
+                                Mat
+                            </span>
+
+                        </div>
+
+
+                        <div class="daily-item">
+
+                            <span class="daily-number">
+                                3
+                            </span>
+
+                            <span>
+                                Hist
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="daily-pending">
+
+                        <i data-lucide="triangle-alert"></i>
+
+                        <span>
+                            Atividades diárias pendentes
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MASCOTE -->
+
+                <article class="dashboard-card mascot-card">
+
+                    <img
+                        src="/front-end/assets/images/Mascote.png"
+                        alt="Mascote Lumos"
+                        class="mascot-image"
+                    >
+
+
+                    <div class="mascot-info">
+
+                        <p>
+                            Pronto para mais um dia?
+                            Organize seus estudos e
+                            acompanhe sua rotina.
+                        </p>
+
+
+                        <button
+                            class="primary-button"
+                            id="agendaButton"
+                        >
+                            Acessar agenda
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRÓXIMA ATIVIDADE -->
+
+                <article class="dashboard-card next-card">
+
+                    <span class="next-label">
+                        Próxima atividade
+                    </span>
+
+
+                    <span
+                        class="subject-tag"
+                        id="subjectTag"
+                    >
+                        Matemática
+                    </span>
+
+
+                    <h2 id="activityTitle">
+                        Conjuntos Numéricos
+                    </h2>
+
+
+                    <p
+                        class="next-description"
+                        id="activityDescription"
+                    >
+                        Atividade de revisão sobre
+                        conjuntos numéricos e
+                        classificação dos números.
+                    </p>
+
+
+                    <div class="next-footer">
+
+                        <span class="next-info">
+                            3 min
+                        </span>
+
+                        <span class="xp">
+                            20 XP
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="primary-button"
+                        id="activityButton"
+                    >
+                        Atividades
+                    </button>
+
+                </article>
+
+            </section>
+
+        </main>
+
+    </div>
+    
+    <script src="/front-end/js/api.js"></script>
+ <script src="/front-end/js/auth.js"></script>
+  <script src="/front-end/js/authGuard.js"></script>
+
+    <script src="/front-end/js/accessibility.js"></script>
+
+    <script src="/front-end/js/main.js"></script>
+
+    <script src="/front-end/pages/inicio/inicio.js"></script>
+
+</body>
+
+</html>
