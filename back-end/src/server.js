@@ -1,10 +1,6 @@
-const express = require("express");
+﻿const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-
-// ========================================
-// ROTAS
-// ========================================
 
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -20,22 +16,10 @@ const profileRoutes = require("./routes/profileRoutes");
 
 const dashboardRoutes = require("./routes/dashboardRoutes");
 
-// ========================================
-// APP
-// ========================================
-
 const app = express();
-
-// ========================================
-// MIDDLEWARES
-// ========================================
 
 app.use(cors());
 app.use(express.json());
-
-// ========================================
-// ROTA PRINCIPAL
-// ========================================
 
 app.get("/", (req, res) => {
     res.json({
@@ -43,45 +27,18 @@ app.get("/", (req, res) => {
     });
 });
 
-// ========================================
-// ROTAS DA API
-// ========================================
-
-// Autenticação
 app.use("/auth", authRoutes);
-
-// Usuários
 app.use("/users", userRoutes);
-
-// Perfil
 app.use("/profile", profileRoutes);
 
-// Conteúdos das atividades
-// Deve vir ANTES de activityRoutes
-// para evitar conflito com /activities/:id
 app.use("/activities", activityContentRoutes);
-
-// Progresso das atividades
 app.use("/activities", activityProgressRoutes);
-
-// Atividades
 app.use("/activities", activityRoutes);
 
-// Agenda
 app.use("/agenda", agendaRoutes);
-
-// Sessões de estudo
 app.use("/study-sessions", studySessionRoutes);
-
-// Progresso por matéria
 app.use("/progress", progressRoutes);
-
-// Dashboard
 app.use("/dashboard", dashboardRoutes);
-
-// ========================================
-// ROTA NÃO ENCONTRADA
-// ========================================
 
 app.use((req, res) => {
     res.status(404).json({
@@ -89,12 +46,8 @@ app.use((req, res) => {
     });
 });
 
-// ========================================
-// SERVIDOR
-// ========================================
-
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
     console.log(`Lumos Connect API rodando na porta ${PORT}`);
 });
