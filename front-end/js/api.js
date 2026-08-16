@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+﻿const API_URL = "https://lumos-connect.onrender.com";
 
 async function apiRequest(endpoint, options = {}) {
     const token = localStorage.getItem("lumos_token");
@@ -28,7 +28,7 @@ async function apiRequest(endpoint, options = {}) {
         }
 
         throw new Error(
-            data.message || "Erro na requisição"
+            data.message || "Erro na requisiÃ§Ã£o"
         );
     }
 
