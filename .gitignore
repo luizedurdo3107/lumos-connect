@@ -1,11 +1,18 @@
-﻿back-end/node_modules/
-back-end/.env
-back-end/.env.*
-!back-end/.env.example
+﻿node_modules/
+.env
+.env.*
+!.env.example
 
-front-end-backup-corrompido/
-front-end-backup-utf8/
+BACKUP_*/
+front-end-backup*/
+*.backup
+*.backup.*
+*.before-*
+*.pre-*
+*.ps1
 
-*.log
+dist/
+build/
+.vscode/
 .DS_Store
 Thumbs.db
